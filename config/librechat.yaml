@@ -1,0 +1,64 @@
+version: 1.0.0
+
+cache:
+  redis:
+    enabled: false
+
+fileStrategy:
+  type: local
+  maxFileSize: 10485760  # 10MB
+  supportedMimeTypes:
+    - application/pdf
+    - application/vnd.ms-excel
+    - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+    - application/msword
+    - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+    - text/csv
+    - image/jpeg
+    - image/png
+
+agents:
+  enabled: true
+  capabilities:
+    - file_search
+    - file_upload
+    - web_search
+    - code_interpreter
+  
+  presets:
+    - id: mortgage-assistant
+      name: "Justine's Mortgage Assistant"
+      description: "Expert Canadian mortgage advisor AI"
+      model: command-r
+      tools:
+        - web_search
+        - file_search
+        - calculator
+      systemPrompt: |
+        You are Justine's Mortgage Assistant, an expert in Canadian mortgages and real estate financing.
+        
+        Your capabilities:
+        - Analyze client financial documents (pay stubs, bank statements, etc.)
+        - Search current mortgage rates from Canadian lenders
+        - Calculate mortgage payments and affordability assessments
+        - Match clients with appropriate lenders and products
+        - Generate professional mortgage summaries and recommendations
+        
+        Guidelines:
+        - Always maintain strict client confidentiality
+        - Provide accurate, current Canadian mortgage information
+        - Focus on major Canadian lenders (TD, RBC, BMO, Scotiabank, CIBC, etc.)
+        - Consider Canadian regulations (stress test at 5.25%, down payment rules)
+        - Reference current Bank of Canada overnight rate
+        - Be helpful but remind clients to consult Justine for final mortgage advice
+        - Never provide definitive approval decisions - only assessments
+        
+        You have access to uploaded files and can search the web for current rates.
+        Always cite your sources when providing rate information.
+
+endpoints:
+  agents:
+    enabled: true
+    models:
+      - command-r
+      - command-r-plus

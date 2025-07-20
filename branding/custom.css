@@ -1,0 +1,328 @@
+/* JustClik AI v2 - Custom Branding CSS */
+/* Justine Mortgage Queen Theme */
+
+:root {
+  /* Brand Colors */
+  --primary-color: #1e40af;      /* Professional Blue */
+  --secondary-color: #f59e0b;    /* Trust Gold */
+  --accent-color: #059669;       /* Success Green */
+  --text-primary: #111827;       /* Dark Gray */
+  --text-secondary: #6b7280;     /* Medium Gray */
+  --background: #f9fafb;         /* Light Gray */
+  --surface: #ffffff;            /* White */
+  --border: #e5e7eb;             /* Light Border */
+  
+  /* Interactive States */
+  --hover-primary: #1d4ed8;
+  --hover-secondary: #f59e0b;
+  --focus-ring: rgba(59, 130, 246, 0.3);
+}
+
+/* Custom Upload Button - The signature "JustClik" button */
+.justclik-upload-btn,
+.upload-button,
+button[aria-label*="upload"],
+button[title*="upload"] {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+  color: white !important;
+  font-weight: bold !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  border: none !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.justclik-upload-btn:hover,
+.upload-button:hover,
+button[aria-label*="upload"]:hover,
+button[title*="upload"]:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15) !important;
+  background: linear-gradient(135deg, var(--hover-primary), var(--secondary-color)) !important;
+}
+
+/* Add subtle animation to upload button */
+.justclik-upload-btn::before {
+  content: '📎 JustClik to Upload';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: inherit;
+  border-radius: inherit;
+}
+
+/* Header Customization */
+.app-header,
+header[role="banner"] {
+  background: var(--primary-color) !important;
+  padding: 16px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Brand Logo Styling */
+.brand-logo {
+  height: 40px !important;
+  margin-right: 16px !important;
+  filter: brightness(0) invert(1); /* Make logo white if it's dark */
+}
+
+/* Navigation and Menu Items */
+.nav-item,
+.menu-item {
+  color: white !important;
+}
+
+.nav-item:hover,
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 6px !important;
+}
+
+/* Chat Interface Customization */
+.chat-container {
+  background: var(--background) !important;
+}
+
+.message-bubble.user {
+  background: var(--primary-color) !important;
+  color: white !important;
+}
+
+.message-bubble.assistant {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Input Field Styling */
+.chat-input,
+textarea.chat-input {
+  border: 2px solid var(--border) !important;
+  border-radius: 8px !important;
+  padding: 12px !important;
+  font-size: 16px !important;
+  transition: border-color 0.3s ease !important;
+}
+
+.chat-input:focus,
+textarea.chat-input:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 3px var(--focus-ring) !important;
+  outline: none !important;
+}
+
+/* Send Button */
+.send-button,
+button[aria-label*="send"] {
+  background: var(--accent-color) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 8px 16px !important;
+  font-weight: 600 !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.send-button:hover,
+button[aria-label*="send"]:hover {
+  background: #047857 !important;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  background: var(--surface) !important;
+  border-right: 1px solid var(--border) !important;
+}
+
+.sidebar-item {
+  color: var(--text-primary) !important;
+  padding: 12px 16px !important;
+  border-radius: 6px !important;
+  margin: 4px 8px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.sidebar-item:hover {
+  background: var(--background) !important;
+}
+
+.sidebar-item.active {
+  background: var(--primary-color) !important;
+  color: white !important;
+}
+
+/* File Upload Area */
+.file-upload-area {
+  border: 2px dashed var(--border) !important;
+  border-radius: 8px !important;
+  padding: 24px !important;
+  text-align: center !important;
+  background: var(--surface) !important;
+  transition: all 0.3s ease !important;
+}
+
+.file-upload-area:hover,
+.file-upload-area.drag-over {
+  border-color: var(--primary-color) !important;
+  background: rgba(30, 64, 175, 0.05) !important;
+}
+
+/* Success Messages */
+.success-message,
+.alert-success {
+  background: var(--accent-color) !important;
+  color: white !important;
+  border-radius: 6px !important;
+  padding: 12px 16px !important;
+  margin: 8px 0 !important;
+}
+
+/* Warning Messages */
+.warning-message,
+.alert-warning {
+  background: var(--secondary-color) !important;
+  color: white !important;
+  border-radius: 6px !important;
+  padding: 12px 16px !important;
+  margin: 8px 0 !important;
+}
+
+/* Error Messages */
+.error-message,
+.alert-error {
+  background: #dc2626 !important;
+  color: white !important;
+  border-radius: 6px !important;
+  padding: 12px 16px !important;
+  margin: 8px 0 !important;
+}
+
+/* Loading Indicators */
+.loading-spinner {
+  border-top-color: var(--primary-color) !important;
+}
+
+.loading-text {
+  color: var(--text-secondary) !important;
+}
+
+/* Footer Customization */
+.app-footer {
+  text-align: center !important;
+  padding: 20px !important;
+  background: var(--background) !important;
+  border-top: 1px solid var(--border) !important;
+  margin-top: auto !important;
+}
+
+.footer-text {
+  color: var(--text-secondary) !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+.footer-text a {
+  color: var(--primary-color) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+}
+
+.footer-text a:hover {
+  text-decoration: underline !important;
+}
+
+/* Canadian Flag Emoji in Footer */
+.footer-text::after {
+  content: ' 🇨🇦';
+  margin-left: 8px;
+}
+
+/* Modal Dialogs */
+.modal {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.modal-content {
+  background: var(--surface) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.modal-header {
+  background: var(--primary-color) !important;
+  color: white !important;
+  border-radius: 12px 12px 0 0 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .justclik-upload-btn {
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+  }
+  
+  .app-header {
+    padding: 12px !important;
+  }
+  
+  .brand-logo {
+    height: 32px !important;
+  }
+}
+
+/* Dark Mode Support (if enabled) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #111827;
+    --surface: #1f2937;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --border: #374151;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Animation for smooth interactions */
+* {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease !important;
+}
+
+/* Hide default LibreChat branding if needed */
+.librechat-branding {
+  display: none !important;
+}
+
+/* Ensure proper focus states for accessibility */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--primary-color) !important;
+  outline-offset: 2px !important;
+}

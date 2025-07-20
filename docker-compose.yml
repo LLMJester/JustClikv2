@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  librechat:
+    image: ghcr.io/danny-avila/LibreChat:latest
+    container_name: justine_mortgage_ai
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - DOMAIN=${DOMAIN}
+      - APP_TITLE=${APP_TITLE}
+      - ENDPOINTS=${ENDPOINTS}
+      - COHERE_API_KEY=${COHERE_API_KEY}
+      - COHERE_MODELS=${COHERE_MODELS}
+      - JWT_SECRET=${JWT_SECRET}
+      - SESSION_SECRET=${SESSION_SECRET}
+      - CREDS_KEY=${CREDS_KEY}
+      - CREDS_IV=${CREDS_IV}
+      - DATABASE_URL=${DATABASE_URL}
+      - REGISTRATION_OPEN=${REGISTRATION_OPEN}
+      - ALLOW_FILE_UPLOADS=${ALLOW_FILE_UPLOADS}
+      - CUSTOM_FOOTER=${CUSTOM_FOOTER}
+      - BRAND_LOGO_URL=${BRAND_LOGO_URL}
+      - BRAND_LOGO_CHAT=${BRAND_LOGO_CHAT}
+      - DATA_RETENTION=${DATA_RETENTION}
+      - USER_CONTROLLED_DELETION=${USER_CONTROLLED_DELETION}
+      - COMPLIANCE_MODE=${COMPLIANCE_MODE}
+    volumes:
+      - ./data:/app/backend/data
+      - ./logs:/app/backend/logs
+      - ./branding:/app/client/public/assets/custom
+      - ./config/librechat.yaml:/app/librechat.yaml
+    depends_on:
+      - postgres
+    networks:
+      - justclik-network
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: justine_mortgage_db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=librechat
+      - POSTGRES_USER=librechat
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backups:/backups
+    networks:
+      - justclik-network
+
+networks:
+  justclik-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
